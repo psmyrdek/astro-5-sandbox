@@ -6,6 +6,7 @@ const episodes = defineCollection({
   schema: z.object({
     id: z.string(),
     title: z.string(),
+    fetchedAt: z.string(),
     link: z.string(),
   }),
 });

@@ -1,6 +1,7 @@
 export interface Episode {
   id: string;
   title: string;
+  fetchedAt: string;
   link: string;
 }
 
@@ -18,6 +19,7 @@ export default async function loadEpisodes(): Promise<Episode[]> {
 
     return {
       id: `episode-${index}`,
+      fetchedAt: new Date().toISOString(),
       title: titleMatch ? titleMatch[1] : "",
       link: linkMatch ? linkMatch[1] : "",
     };

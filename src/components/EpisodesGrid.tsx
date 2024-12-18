@@ -51,6 +51,9 @@ export default function EpisodesGrid({count}: EpisodesGridProps) {
           <h2 className='text-xl font-semibold mb-2 text-gray-800'>
             {episode.title}
           </h2>
+          <p className='text-sm text-gray-600'>
+            Fetched at: {new Date(episode.fetchedAt).toLocaleString()}
+          </p>
           <a
             href={`/episode/${episode.id}`}
             target='_blank'

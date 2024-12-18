@@ -12,6 +12,7 @@ const selectedEpisodes = episodes.slice(0, count);
     selectedEpisodes.map((e) => (
       <li class='hover:underline hover:text-blue-400'>
         <a href={e.data.link}>{e.data.title}</a>
+        <p>{e.data.fetchedAt}</p>
       </li>
     ))
   }
