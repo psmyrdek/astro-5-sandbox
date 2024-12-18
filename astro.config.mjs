@@ -11,6 +11,7 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   integrations: [tailwind(), react()],
   adapter: netlify(),
+  output: "server",
   server: {
     port: 3000,
   },
