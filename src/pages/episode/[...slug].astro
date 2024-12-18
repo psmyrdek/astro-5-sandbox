@@ -3,7 +3,7 @@ import {getCollection} from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 // Optional - side-effect of "output: 'server'" in astro.config.mjs
-export const prerender = true;
+// export const prerender = true;
 
 export async function getStaticPaths() {
   const episodes = await getCollection("episodes");
