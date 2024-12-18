@@ -1,0 +1,30 @@
+---
+import {getCollection} from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// Optional - side-effect of "output: 'server'" in astro.config.mjs
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const episodes = await getCollection("episodes");
+
+  return episodes.map((episode) => ({
+    params: {slug: episode.data.id},
+    props: {episode: episode.data},
+  }));
+}
+
+const {episode} = Astro.props;
+---
+
+<Layout title={episode.title}>
+  <main class='container mx-auto px-4 py-8'>
+    <a href='/' class='text-blue-500 hover:text-blue-700'>← Back to Home</a>
+    <article class='max-w-2xl mx-auto'>
+      <h1 class='text-3xl font-bold mb-4'>{episode.title}</h1>
+      <a href={episode.link} target='_blank' rel='noopener noreferrer'>
+        Listen to Episode
+      </a>
+    </article>
+  </main>
+</Layout>

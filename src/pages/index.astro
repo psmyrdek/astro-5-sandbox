@@ -1,11 +1,18 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import EpisodesGrid from "../components/EpisodesGrid.tsx";
+import Podcasts from "../components/Podcasts.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <div class='mx-auto max-w-7xl p-4'>
+    <h1 class='text-2xl font-bold mb-4'>Client Island - Episodes from API</h1>
+    <EpisodesGrid count={6} client:load />
+    <h1 class='text-2xl font-bold mt-4'>
+      Server Island - Episodes from Content Collection
+    </h1>
+    <Podcasts count={3} server:defer>
+      <div slot='fallback'>Loading episodes...</div>
+    </Podcasts>
+  </div>
 </Layout>
