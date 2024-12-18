@@ -1,4 +1,10 @@
-# Astro Starter Kit: Basics
+# Astro 5 - Demo App
+
+## Intro - Przeprogramowani @ YouTube
+
+Watch the episode [here](https://youtu.be/knjzEcgcRT0)
+
+## Docs
 
 ```sh
 npm create astro@latest -- --template basics
