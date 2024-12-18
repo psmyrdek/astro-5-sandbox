@@ -1,18 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import EpisodesGrid from "../components/EpisodesGrid.tsx";
-import Podcasts from "../components/Podcasts.astro";
+import EpisodesGridSSR from "../components/EpisodeGridSSR.tsx";
+import EpisodesGridAstro from "../components/EpisodesGrid.astro";
 ---
 
 <Layout>
   <div class='mx-auto max-w-7xl p-4'>
     <h1 class='text-2xl font-bold mb-4'>Client Island - Episodes from API</h1>
     <EpisodesGrid count={6} client:load />
+    <h1 class='text-2xl font-bold mb-4'>
+      Server-rendered React - Episodes from Content Collection
+    </h1>
+    <EpisodesGridSSR count={6} />
     <h1 class='text-2xl font-bold mt-4'>
       Server Island - Episodes from Content Collection
     </h1>
-    <Podcasts count={3} server:defer>
+    <EpisodesGridAstro count={6}>
       <div slot='fallback'>Loading episodes...</div>
-    </Podcasts>
+    </EpisodesGridAstro>
   </div>
 </Layout>
